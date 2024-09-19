@@ -18014,7 +18014,23 @@ unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 2 3
 # 9 "blink.c" 2
 
+void delay();
 
-void main(void) {
-    return;
+int main(){
+    TRISB = 0X00;
+    while(1){
+        for(int k=0;k<8;k++){
+        PORTB = 0X80 >> k;
+        delay();
+        }
+
+        for(int j=0;j<8;j++){
+        PORTB = 0X01 << j;
+        delay();}
+    }
+}
+void delay()
+{
+for(int i=0;i<100;i++)
+    for(int j=0;j<100;j++);
 }

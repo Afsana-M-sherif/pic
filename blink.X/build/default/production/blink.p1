@@ -1,5 +1,14 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
+"27059 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4580.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4580.h: 27059: extern volatile unsigned char TRISB __attribute__((address(0xF93)));
+[v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
+"25714
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4580.h: 25714: extern volatile unsigned char PORTB __attribute__((address(0xF81)));
+[v _PORTB `Vuc ~T0 @X0 0 e@3969 ]
+"10 blink.c
+[; ;blink.c: 10: void delay();
+[v _delay `(v ~T0 @X0 0 e? ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4580.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4580.h: 54: __asm("RXF6SIDH equ 0D60h");
 [; <" RXF6SIDH equ 0D60h ;# ">
@@ -1240,16 +1249,104 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4580.h: 32464: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 [v $root$_main `(v ~T0 @X0 0 e ]
-"11 blink.c
-[; ;blink.c: 11: void main(void) {
-[v _main `(v ~T0 @X0 1 ef ]
+"12 blink.c
+[; ;blink.c: 12: int main(){
+[v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"12
-[; ;blink.c: 12:     return;
-[e $UE 1088  ]
 "13
-[; ;blink.c: 13: }
+[; ;blink.c: 13:     TRISB = 0X00;
+[e = _TRISB -> -> 0 `i `uc ]
+"14
+[; ;blink.c: 14:     while(1){
+[e :U 1090 ]
+{
+"15
+[; ;blink.c: 15:         for(int k=0;k<8;k++){
+{
+[v _k `i ~T0 @X0 1 a ]
+[e = _k -> 0 `i ]
+[e $ < _k -> 8 `i 1092  ]
+[e $U 1093  ]
+[e :U 1092 ]
+{
+"16
+[; ;blink.c: 16:         PORTB = 0X80 >> k;
+[e = _PORTB -> >> -> 128 `i _k `uc ]
+"17
+[; ;blink.c: 17:         delay();
+[e ( _delay ..  ]
+"18
+[; ;blink.c: 18:         }
+}
+[e ++ _k -> 1 `i ]
+[e $ < _k -> 8 `i 1092  ]
+[e :U 1093 ]
+}
+"20
+[; ;blink.c: 20:         for(int j=0;j<8;j++){
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ < _j -> 8 `i 1095  ]
+[e $U 1096  ]
+[e :U 1095 ]
+{
+"21
+[; ;blink.c: 21:         PORTB = 0X01 << j;
+[e = _PORTB -> << -> 1 `i _j `uc ]
+"22
+[; ;blink.c: 22:         delay();}
+[e ( _delay ..  ]
+}
+[e ++ _j -> 1 `i ]
+[e $ < _j -> 8 `i 1095  ]
+[e :U 1096 ]
+}
+"23
+[; ;blink.c: 23:     }
+}
+[e :U 1089 ]
+[e $U 1090  ]
+[e :U 1091 ]
+"24
+[; ;blink.c: 24: }
 [e :UE 1088 ]
+}
+"25
+[; ;blink.c: 25: void delay()
+[v _delay `(v ~T0 @X0 1 ef ]
+"26
+[; ;blink.c: 26: {
+{
+[e :U _delay ]
+[f ]
+"27
+[; ;blink.c: 27: for(int i=0;i<100;i++)
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 100 `i 1099  ]
+[e $U 1100  ]
+[e :U 1099 ]
+"28
+[; ;blink.c: 28:     for(int j=0;j<100;j++);
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ < _j -> 100 `i 1102  ]
+[e $U 1103  ]
+[e :U 1102 ]
+[e ++ _j -> 1 `i ]
+[e $ < _j -> 100 `i 1102  ]
+[e :U 1103 ]
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 100 `i 1099  ]
+[e :U 1100 ]
+}
+"29
+[; ;blink.c: 29: }
+[e :UE 1098 ]
 }
